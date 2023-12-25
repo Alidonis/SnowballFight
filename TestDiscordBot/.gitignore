@@ -1,0 +1,8 @@
+﻿# Ignore build results
+[Bb]in/
+[Oo]bj/
+
+# Ignore sensitive data
+*[Ss]ensitive.cs
+.env
+*.env
