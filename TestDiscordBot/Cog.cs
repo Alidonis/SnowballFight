@@ -17,7 +17,7 @@ namespace TestDiscordBot
 
 	}
 
-	public class ExampleCog //: ICog
+	public class ExampleCog : ICog
 	{
 		private DiscordSocketClient Client;
 		public ExampleCog(DiscordSocketClient client, string[] prgargs)

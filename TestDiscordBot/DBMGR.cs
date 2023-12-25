@@ -127,7 +127,7 @@ namespace TestDiscordBot
 				orderBy = $" ORDER BY {orderBy}";
 			}
 
-			string request = $"SELECT {records} FROM {tableName}{where}{orderBy}{}";
+			string request = $"SELECT {records} FROM {tableName}{where}{orderBy}{_limit}";
 
 			Console.WriteLine(request);
 

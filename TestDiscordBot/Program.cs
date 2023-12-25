@@ -68,7 +68,7 @@ namespace TestDiscordBot
 				}
 			}
 
-			_Client.LogoutAsync();
+			Task.WaitAll(_Client.LogoutAsync());
 		}
 		async static Task<DiscordSocketClient> SetupClient(string Token, DiscordSocketConfig config)
 		{
