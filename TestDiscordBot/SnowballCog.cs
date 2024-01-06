@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
-using System.Data.Entity.Infrastructure.MappingViews;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -32,7 +30,12 @@ namespace TestDiscordBot
 		{
 			Client = client;
 			Client.MessageReceived += onMessage;
+
+			Console.WriteLine("Message event registered");
+
 			Database = new("../../../db/snowball.db");
+
+			Console.WriteLine("Initialized DBMGR");
 
 			RNG = new Random();
 			Cache = new();
@@ -48,6 +51,8 @@ namespace TestDiscordBot
 
 			Database.CreateTable("snowballs", collums, true);
 
+			Console.WriteLine("Created snowballs table");
+
 			var lbInfoCollumns = new Dictionary<string, string>()
 			{
 				{ "server_id", "INTEGER PRIMARY KEY" },
@@ -56,6 +61,8 @@ namespace TestDiscordBot
 			};
 
 			Database.CreateTable("leaderboardinfo", lbInfoCollumns, true);
+
+			Console.WriteLine("Fully init snowballcog");
 		}
 
 		private async Task<Tuple<long?, long?, long?, long?, long?>> GetUserData(SocketUser user)

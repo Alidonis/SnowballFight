@@ -15,10 +15,7 @@
 
   <ItemGroup>
     <None Remove=".gitignore" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Include=".gitignore" />
+    <None Remove="*TestDiscordBot.csproj" />
   </ItemGroup>
 
   <ItemGroup>
