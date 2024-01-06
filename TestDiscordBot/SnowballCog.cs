@@ -263,14 +263,14 @@ namespace TestDiscordBot
 			object[][] BestPeltersTable = Database.SelectFromTable("snowballs", "user_id, ThrownSnowballs", order: new Dictionary<string, string>() { { "ThrownSnowballs", "DESC" } }, limit: 10);
 			object[][] MostPeltedTable = Database.SelectFromTable("snowballs", "user_id, ReceivedSnowballs", order: new Dictionary<string, string>() { { "ReceivedSnowballs", "DESC" } }, limit: 10);
 
-			foreach (object[] objects in ActiveThrowersTable)
-			{
-				guild.GetUser((ulong)objects[0]);
-			}
-
 			string LbMostActiveThrowers = "";
 			string LbBestPelters = "";
 			string LbMostPelted = "";
+
+			foreach (object[] objects in ActiveThrowersTable)
+			{
+				LbMostActiveThrowers += $" {guild.GetUser((ulong)objects[0]).Username}";
+			}
 
 			EmbedBuilder leaderboardsBuilder = new EmbedBuilder();
 
